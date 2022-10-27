@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import "./Registration.css";
+
+import axios from "axios";
 
 export const RegistrstionForm = () => {
   const [studentname, setStudentname] = useState("");
@@ -9,7 +11,16 @@ export const RegistrstionForm = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  
+
+  const resetForm = () => {
+    setStudentname("");
+    setCourse("");
+    setFee("");
+    setEmail("");
+    setPassword("");
+    setAddress("");
+    setPhone("");
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -36,29 +47,7 @@ export const RegistrstionForm = () => {
     }
   };
 
-
-    // var myHeaders = Object.assign(
-    //   {
-    //     headers: {
-          
-    //       'Content-Type': 'application/json',
-    //       'Access-Control-Allow-Origin': '*',
-          
-    //     },
-    //     mode: 'no-cors',
-    //   })
-    
-  // var myHeaders = new Headers();
-  // myHeaders.append({
-  //   Accept: 'application/json',
-  //   'Content-Type': 'application/json',
-  //   'Access-Control-Allow-Origin': '*',
-  //   mode: 'no-cors',
-  // });
-
-  
-
-  var data= JSON.stringify({
+  var data = JSON.stringify({
     studentName: studentname,
     course: course,
     fee: fee,
@@ -69,85 +58,54 @@ export const RegistrstionForm = () => {
   });
 
   var config = {
-    method: 'post',
-    url: 'http://localhost:8090/registration',
-    headers: { 
-      'Content-Type': 'application/json'
+    method: "post",
+    url: "http://localhost:8080/student",
+    headers: {
+      "Content-Type": "application/json",
     },
-    data : data
+    data: data,
   };
-
-  // var requestOptions = {
-  //   method: "POST",
-  //   headers: myHeaders,
-  //   body: raw,
-  //   redirect: "follow",
-  // };
 
   const HandelSubmit = async (e) => {
     e.preventDefault();
-    try{
-      // const response = await fetch(
-      //   "http://localhost:8090/registration",
-      //   requestOptions
-      // );
-      // const data = await response.json();
-      // console.log(data);
-
-      const response = await axios(config)
+    try {
+      const response = await axios(config);
       const re = await response.json();
-      console.log(re)
-
-    }catch(err){
-      console.log(err)
+      console.log(re);
+    } catch (err) {
+      console.log(err);
     }
-
-   
+    resetForm();
   };
 
   return (
     <>
-      <div
-        className="container-fluid"
-        style={{ background: "#9b26b6", height: "100vh" }}
-      >
+      <div className="container-fluid Registration">
         <div className="row">
           <div className="col-md-12" style={{ marginTop: "10%" }}></div>
         </div>
 
-        {/* <!-- <div className="container-fluid" style="background-color: white"> -->
-      <!-- <div className="row">
-        <div className="col-md-12"></div>
-      </div> --> */}
         <div className="row">
           <div className="col-md-3"></div>
           <div
-            className="col-md-6 "
+            className="col-md-6"
             style={{ backgroundColor: "white", borderRadius: "5px" }}
           >
             <div className="container">
-              <div className="row" style={{ marginTop: "45px" }}>
+              <div className="row mt-5">
                 <div className="col-md-12">
                   <h3>
-                    <span
-                      style={{
-                        fontWeight: "bold",
-                        fontFamily: "Sofia",
-                        fontSize: "2em",
-                      }}
-                    >
-                      Registration
-                    </span>
+                    <span className="Registration-header">Registration</span>
                   </h3>
                 </div>
               </div>
               <br />
 
               <div className="row">
-                <div className="col-md-6" style={{ height: "60vh" }}>
-                  <form style={{ paddingTop: "5px" }}>
+                <div className="col-md-6">
+                  <form className="pt-2">
                     <div className="mb-6">
-                      <label for="studentname" className="form-label">
+                      <label htmlFor="studentname" className="form-label">
                         Student Name
                       </label>
                       <input
@@ -162,7 +120,7 @@ export const RegistrstionForm = () => {
                     </div>
 
                     <div className="mb-6 mt-2">
-                      <label for="course" className="form-label">
+                      <label htmlFor="course" className="form-label">
                         Course
                       </label>
                       <input
@@ -176,7 +134,7 @@ export const RegistrstionForm = () => {
                       />
                     </div>
                     <div className="mb-6 mt-2">
-                      <label for="fee" className="form-label">
+                      <label htmlFor="fee" className="form-label">
                         Fees
                       </label>
                       <input
@@ -190,7 +148,7 @@ export const RegistrstionForm = () => {
                       />
                     </div>
                     <div className="mb-6 mt-2">
-                      <label for="address" className="form-label">
+                      <label htmlFor="address" className="form-label">
                         Address
                       </label>
                       <input
@@ -204,7 +162,7 @@ export const RegistrstionForm = () => {
                       />
                     </div>
                     <div className="mb-6 mt-2">
-                      <label for="phone" className="form-label">
+                      <label htmlFor="phone" className="form-label">
                         Phone
                       </label>
                       <input
@@ -219,7 +177,7 @@ export const RegistrstionForm = () => {
                     </div>
 
                     <div className="mb-6 mt-2">
-                      <label for="email" className="form-label">
+                      <label htmlFor="email" className="form-label">
                         Email address
                       </label>
                       <input
@@ -233,7 +191,7 @@ export const RegistrstionForm = () => {
                       />
                     </div>
                     <div className="mb-3 mt-2">
-                      <label for="password" className="form-label">
+                      <label htmlFor="password" className="form-label">
                         Password
                       </label>
                       <input
@@ -245,22 +203,23 @@ export const RegistrstionForm = () => {
                         onChange={(e) => handleInputChange(e)}
                       />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={(e) => {
-                      HandelSubmit(e);
-                    }} >
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onClick={(e) => {
+                        HandelSubmit(e);
+                      }}
+                    >
                       Signup
                     </button>
                   </form>
                   <br />
                 </div>
                 <div className="col-md-6">
-                  {/* <!-- <img
-                  src="https://img.freepik.com/premium-vector/sign-account-user-authorization-login-authentication-page-concept-laptop-with-login-password-form-page-screen-stock-illustration_100456-1590.jpg?w=2000"
-                  width="100%"
-                /> --> */}
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR-67IkaM7TeLM4db3bXJL-ooYWjNh3opMbA&usqp=CAU"
-                    width="100%" alt="logo"
+                    width="100%"
+                    alt="logo"
                   />
                 </div>
               </div>
