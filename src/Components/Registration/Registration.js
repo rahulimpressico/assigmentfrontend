@@ -80,6 +80,7 @@ export const RegistrstionForm = () => {
 
   return (
     <>
+<<<<<<< HEAD:src/Components/Registration/Registration.js
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -117,6 +118,9 @@ export const RegistrstionForm = () => {
         // style={{ background: "#9b26b6", height: "100%" }}
         style={{ background: "#ddd", height: "100%" }}
       >
+=======
+      <div className="container-fluid Registration">
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a:src/Components/Registration.js
         <div className="row">
           <div className="col-md-12" style={{ marginTop: "5%" }}></div>
         </div>

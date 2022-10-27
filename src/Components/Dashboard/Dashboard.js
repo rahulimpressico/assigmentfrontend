@@ -28,6 +28,7 @@ export const Dashboard = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -81,6 +82,12 @@ export const Dashboard = () => {
               fontFamily: "Sofia",
             }}
           >
+=======
+      <div className="container-fluid, Dashboard">
+        <div className="row">
+          <div className="col-md-1"></div>
+          <div className="col-md-10 Dashboard-header">
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a
             <h1>Dashboard</h1>
           </div>
           <div className="col-md-1"></div>
@@ -96,11 +103,16 @@ export const Dashboard = () => {
             style={{ backgroundColor: "white", borderRadius: "5px" }}
           >
             <div className="container-fluid">
+<<<<<<< HEAD
               <div
                 className="row"
                 style={{ paddingBottom: "10px", paddingTop:"20px" }}
               >
                 <table className="table table-striped table-responsive  table-bordered  border-primary table-hover">
+=======
+              <div className="row">
+                <table className="table table-striped table-hover">
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a
                   <thead>
                     <tr>
                       <th scope="col">ID</th>
@@ -110,7 +122,10 @@ export const Dashboard = () => {
                       <th scope="col">Address</th>
                       <th scope="col">Phone</th>
                       <th scope="col">Email</th>
+<<<<<<< HEAD
                       <th scope="col">Action</th>
+=======
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a
                     </tr>
                   </thead>
                   <tbody>
@@ -126,7 +141,10 @@ export const Dashboard = () => {
                           <td>{address}</td>
                           <td>{phone}</td>
                           <td>{email}</td>
+<<<<<<< HEAD
                           <td><button type="button" class="btn btn-warning">Update</button>  <button type="button" class="btn btn-danger">Delete</button></td>
+=======
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a
                         </tr>
                       );
                     })}
@@ -138,9 +156,12 @@ export const Dashboard = () => {
 
           <div className="col-md-1"></div>
         </div>
+<<<<<<< HEAD
         <div className="row">
           <div className="col-md-12" style={{ marginTop: "45%" }}></div>
         </div>
+=======
+>>>>>>> 34ed50d856a0e0026672127c5be186bce5130c2a
       </div>
     </>
   );
